@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import instance from "../api/axios";
-import request from "../api/request";
+import "./Row.css";
 
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]); // 20개의 영화가 담긴다.
@@ -17,6 +17,39 @@ const Row = ({ title, id, fetchUrl }) => {
   return (
     <div>
       <h2>{title}</h2>
+      <div className="slider">
+        <div className="slider__arrow-left">
+          <span
+            onClick={() => {
+              document.getElementById(id).scrollLeft -= window.innerWidth - 80;
+            }}
+            className="arrow"
+          >
+            {"<"}
+          </span>
+        </div>
+        <div id={id} className="row__posters">
+          {/* mpvies.map img*/}
+          {movies?.map((movie) => (
+            <img
+              key={movie.id}
+              className="row__poster"
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              alt={movie.name}
+            />
+          ))}
+        </div>
+        <div className="slider__arrow-right">
+          <span
+            onClick={() => {
+              document.getElementById(id).scrollLeft += window.innerWidth - 80;
+            }}
+            lassName="arrow"
+          >
+            {">"}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

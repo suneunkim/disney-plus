@@ -12,11 +12,10 @@ function App() {
       <Nav />
       <MainBanner />
       <Category />
-      <Row title="최근 인기있는 작품들" id="now" fetchUrl={request.fetchTrending} />
-      <Row title="평점이 좋은 작품들" id="now" fetchUrl={request.fetchTopRated} />
-      <Row title="로맨스가 필요해" id="now" fetchUrl={request.fetchRomanceMovies} />
-      <Row title="코미디를 찾으신다면" id="now" fetchUrl={request.fetchComedyMoives} />
-      <Row title="오늘 밤은 호러무비로" id="now" fetchUrl={request.fetchHorrorMovies} />
+      <Row title="최근 인기있는 작품들" id="tr" fetchUrl={request.fetchTrending} />
+      <Row title="평점이 좋은 작품들" id="top" fetchUrl={request.fetchTopRated} />
+      <Row title="현재 상영하는 작품들" id="now" fetchUrl={request.fetchNowPlaying} />
+      <Row title="제법 신날수도?" id="co" fetchUrl={request.fetchComedyMoives} />
     </Container>
   );
 }
