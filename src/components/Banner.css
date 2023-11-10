@@ -1,0 +1,99 @@
+.banner {
+  color: white;
+  object-fit: contain;
+  height: 448px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 1500px) {
+  .banner {
+    position: relative;
+    height: 600px;
+  }
+
+  .banner__fadeBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40rem;
+  }
+}
+/* rem은 최상위 요소의 크기를 기준으로 삼음 */
+@media (max-width: 768px) {
+  .banner__contents {
+    width: min-content !important;
+    padding-left: 2.3rem;
+    margin-left: 0px !important;
+  }
+
+  .banner__description {
+    font-size: 0.8rem !important;
+    width: 70%;
+  }
+  .info {
+    text-align: start;
+    padding-right: 1.2rem;
+  }
+  .space {
+    margin-left: 6px;
+  }
+  .banner__buttons {
+    font-size: 0.8rem !important;
+    border-radius: 4px !important;
+  }
+}
+
+.banner__contents {
+  margin-left: 40px;
+  padding-top: 140px;
+  height: 190px;
+}
+
+.banner__title {
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.5rem;
+}
+
+.banner__description {
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  max-width: 450px;
+  min-width: 200px;
+  height: 80px;
+}
+
+.banner__fadeBottom {
+  height: 7.4rem;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+.banner__buttons {
+  display: flex;
+}
+
+.banner__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0.4rem;
+  margin-right: 1rem;
+}
+
+.banner__button:hover {
+  color: #111;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
+}
+
+.play {
+  background-color: white;
+  color: black;
+}
