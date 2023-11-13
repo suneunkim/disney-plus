@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import instance from "../api/axios";
 import "./Row.css";
+import MovieModal from "./MovieModal";
 
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]); // 20개의 영화가 담긴다.
+  const [modalOpen, setModalOpen] = useState(false); // 모달 창 뷰 상태
+  const [detailMovie, setDetailMovie] = useState({}); // 모달 창에 띄울 영화
 
   const fetchMovieData = useCallback(async () => {
     const response = await instance.get(fetchUrl);
@@ -13,6 +16,12 @@ const Row = ({ title, id, fetchUrl }) => {
   useEffect(() => {
     fetchMovieData();
   }, [fetchMovieData]);
+
+  // 상세 모달 띄우기
+  const handleClick = (movie) => {
+    setModalOpen(true);
+    setDetailMovie(movie);
+  };
 
   return (
     <div>
@@ -36,6 +45,7 @@ const Row = ({ title, id, fetchUrl }) => {
               className="row__poster"
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt={movie.name}
+              onClick={() => handleClick(movie)}
             />
           ))}
         </div>
@@ -50,6 +60,7 @@ const Row = ({ title, id, fetchUrl }) => {
           </span>
         </div>
       </div>
+      {modalOpen && <MovieModal {...detailMovie} setDetailMovie={setModalOpen} />}
     </div>
   );
 };

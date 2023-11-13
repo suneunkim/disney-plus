@@ -1,0 +1,113 @@
+.container {
+  z-index: 100;
+  position: absolute;
+}
+.wrapper-modal {
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  backdrop-filter: blur(5px);
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 9px 13px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.modal {
+  position: relative;
+  max-width: 800px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  background: #111;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 400ms ease-in-out 2s;
+  animation: fadeIn 400ms;
+  overflow-y: scroll;
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal__poster-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 
+height auto는 이미지의 원래 비율을 유지하면서 width에 맞춰서 높이를 조절.
+즉 auto는 너비에 맞추어 자동으로 높이가 조정, 100%는 부모 요소의 높이를 기준.
+*/
+
+.modal__content {
+  padding: 40px;
+  color: white;
+}
+
+.modal__details {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.modal__title {
+  padding: 0;
+  font-size: 40px;
+  margin: 16px 0;
+}
+
+.modal__overview {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+
+@media screen and (max-height: 768px) {
+  .wrapper-modal {
+    align-items: unset;
+    padding-top: 2rem;
+  }
+
+  .modal {
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 768) {
+  .modal__overview {
+    font-size: 16px;
+  }
+  .modal__details {
+    font-size: 16px;
+  }
+  .wrapper-modal {
+    padding: 0;
+  }
+  .modal {
+    overflow-y: scroll !important;
+  }
+}
