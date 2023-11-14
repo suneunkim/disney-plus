@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# 디즈니 플러스
+- 영화나 드라마 시리즈 등을 조회할 수 있는 사이트
+- TMDB의 api 사용하여 이미지와 정보 제공
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 주요 기능
+- 메인 배너
+- 슬라이드 배너
+- 슬라이드 배너 클릭 시 모달
+- 검색 기능과 상세 페이지
 
-## Available Scripts
+## 만들고 나서
+- 기본적인 react 사용에 의미를 둠
+- React Route에서 헷갈렸던 점. url의 정보를 다루거나 읽는 데 사용하는 것들 차이 구분하기.
+- useParams, useLocation, URLSearchParams
+- fetch 대신 axios 사용과 그 차이를 학습
 
-In the project directory, you can run:
+## 만들면서
+- 검색 시 e.target으로 검색한 내용을 전달하고 그 값으로 api 호출 -> 타이핑 대로 호출되서 빈번한 문제
+- key up 이벤트 처리를 setTimeout해서 딜레이를 주고, clearTimeout으로 해제.
 
-### `npm start`
+- api 이미지 클릭했는데 상세페이지에서 해당 api 데이터가 제대로 없는 경우가 있음.
+- fetch를 try catch 구문에서 하고 error시 Error 컴포넌트 보여주기.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 내가 보기 위한 정리
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Main -> Row
+-여러개 fetch시 에러가 발생. 404 에러는 해당 리소스를 찾을 수 없다는 의미이니 바로 주소를 확인할 것.
 
-### `npm test`
+-useCallback?
+useCallback은 React에서 함수를 메모이제이션하고, 해당 함수의 의존성이 변경될 때만 새로운 함수를 생성합니다. 이것은 주로 불필요한 함수 재생성을 방지하고 성능을 최적화하기 위해 사용
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-여러 컴포넌트 간에 함수를 전달하고 있고 이 함수가 특정 프롭스에 의존한다면, useCallback을 사용하는 것이 의미가 있다.
+Row 컴포넌트를 다른 컴포넌트로 추출 or fetchUrl이 부모 컴포넌트에서 변경될 때만 함수가 다시 생성되기를 원한다면 useCallback 사용이 나을 수 있음.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 상위 스코프에 이미 선언된 함수를 쓸 때는 매개변수로 전달하지 말고 그냥 쓰자.
+  매개변수로 받아서 쓰는 경우는 전달을 제대로 하는지 확인하자.
