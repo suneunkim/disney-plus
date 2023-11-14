@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Nav from "./components/Nav";
-import MainBanner from "./components/Banner";
-import Category from "./components/Category";
-import Row from "./components/Row";
-import request from "./api/request";
+import Nav from "../../components/Nav";
+import MainBanner from "../../components/Banner";
+import Category from "../../components/Category";
+import Row from "../../components/Row";
+import request from "../../api/request";
 
 const Main = () => {
   return (
     <Container className="App">
-      <Nav />
       <MainBanner />
       <Category />
       <Row title="최근 인기있는 작품들" id="tr" fetchUrl={request.fetchTrending} />
@@ -22,7 +21,7 @@ const Main = () => {
 
 export default Main;
 
-const Container = styled.main`
+export const Container = styled.main`
   position: relative;
   min-height: calc(100vh - 250px); // 화면의 최소 높이를 250px 설정
   overflow-x: hidden;
