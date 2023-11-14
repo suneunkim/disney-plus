@@ -91,11 +91,13 @@ overflow-y로 세로 방향의 넘침을 숨김
   margin-right: 15px;
   transform: 400ms all ease-in-out;
   border-radius: 5px;
+  border: 2px solid rgba(249, 249, 249, 0.1);
 }
 
 .row__poster:hover {
   transform: scale(1.08);
   transition: 400ms all ease;
+  border: 2px solid rgba(249, 249, 249, 0.8);
 }
 
 @media screen and (mix-width: 1200px) {

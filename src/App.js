@@ -1,7 +1,7 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
-import LoginPage from "./pages/Login";
+
 import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
@@ -20,10 +20,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<LoginPage />} />
-          <Route path="main" element={<Main />} />
-          <Route path=":movieId" element={<Detail />} />
+          <Route index element={<Main />} />
           <Route path="search" element={<Search />} />
+          <Route path=":movieId" element={<Detail />} />
         </Route>
       </Routes>
     </div>
